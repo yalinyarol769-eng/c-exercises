@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int numeric(char c);
+char to_Lower(char c);
+
+int main()
+{
+    int y;
+    char x, l;
+    
+    printf("Enter a character ");
+    scanf("%c", &x);
+    
+    y = numeric(x); 
+    
+    if (y >= 0 && y <= 9) {
+        printf("Numeric value of your char is: %d\n", y);
+    } 
+    else {
+        l = to_Lower(x); 
+        
+        if (l != 0) {
+            printf("Lowercase equivalent: '%c'\n", l);
+        } 
+        else {
+            printf("Neither a digit nor a capital letter!\n");
+        }
+    }
+    
+    return 0;
+}
+
+char to_Lower(char c) {
+    if (c >= 'A' && c <= 'Z') {
+        return c + ('a' - 'A');
+    } else {
+        return 0; 
+    }
+}
+    
+int numeric(char c) {
+    if (c >= '0' && c <= '9') {
+        return c - '0';
+    } else {
+        return -1;
+    }
+}
